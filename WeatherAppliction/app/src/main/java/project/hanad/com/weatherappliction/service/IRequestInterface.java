@@ -8,6 +8,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import project.hanad.com.weatherappliction.constants.ApiList;
 import project.hanad.com.weatherappliction.model.Model.Weather;
+import project.hanad.com.weatherappliction.model.Model.WeatherResponse;
 import retrofit2.http.GET;
 
 /**
@@ -22,7 +23,7 @@ public  interface IRequestInterface {
      * @return
      */
     @GET(ApiList.WeatherList)
-    Observable<List<List>> GetWeather();
+    Observable<WeatherResponse> GetWeather();
 
 
 }

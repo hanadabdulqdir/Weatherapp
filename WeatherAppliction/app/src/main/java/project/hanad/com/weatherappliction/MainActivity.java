@@ -11,7 +11,8 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import project.hanad.com.weatherappliction.model.Model.Weather;
+import project.hanad.com.weatherappliction.Adapter.WeatherAdapter;
+import project.hanad.com.weatherappliction.model.Model.WeatherResponse;
 import project.hanad.com.weatherappliction.service.IRequestInterface;
 import project.hanad.com.weatherappliction.service.ServiceConnection;
 
@@ -33,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         iRequestInterface.GetWeather()//get data
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<List>>() {
+                .subscribe(new Consumer<WeatherResponse>() {
                                @Override
-                               public void accept(List<List> weathers) {
+                               public void accept(WeatherResponse weathers) {
                                    //Pass the data to the recyclerView
-                                   recyclerView.setAdapter(new WeatherAdapter(this, getApplicationContext(), R.layout.row, weathers));
+                                   recyclerView.setAdapter(new WeatherAdapter(getApplicationContext(), R.layout.row,weathers));
                                    Log.i(" posted",  " accepted post ");
                                }
                            },

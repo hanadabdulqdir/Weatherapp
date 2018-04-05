@@ -1,4 +1,3 @@
-
 package project.hanad.com.weatherappliction.model.Model;
 
 import com.google.gson.annotations.Expose;
@@ -18,6 +17,9 @@ public class City {
     @SerializedName("country")
     @Expose
     private String country;
+    @SerializedName("population")
+    @Expose
+    private Integer population;
 
     public Integer getId() {
         return id;
@@ -49,6 +51,14 @@ public class City {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
     }
 
 }
